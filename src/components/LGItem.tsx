@@ -1,7 +1,7 @@
 import { type ReactNode } from "react";
 import { ListGroupItem, type ListGroupItemProps } from "react-bootstrap";
 
-type LGItemProps = ListGroupItemProps & {
+type LGItemProps = Omit<ListGroupItemProps, "title"> & {
   title: ReactNode;
   description: ReactNode;
 };

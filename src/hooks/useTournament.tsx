@@ -3,7 +3,7 @@ import type { TablesMap } from "../types/table";
 import axios from "axios";
 import { io } from "socket.io-client";
 
-const url = "http://localhost:3000";
+const url = window.location.origin;
 
 const socket = io(url);
 

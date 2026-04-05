@@ -1,4 +1,4 @@
-import { BookMarked } from "lucide-react";
+import { BookMarked, Info, Trash2, Edit } from "lucide-react";
 import {
   Card,
   CardBody,
@@ -9,17 +9,18 @@ import {
 } from "react-bootstrap";
 import { LGItem } from "../../../components/LGItem";
 
-export function Aside() {
+function Aside() {
   return (
     <Col md={12} lg={4} className="d-flex align-items-center mt-3 mt-lg-0">
-      <Card className="rounded-4 ">
+      <Card className="rounded-4 border-0 w-100 overflow-hidden">
+        <div className="bg-secondary" style={{ height: "6px" }}></div>
         <CardBody className="p-4">
-          <CardTitle>
-            <BookMarked /> Manual de Uso
+          <CardTitle className="d-flex align-items-center gap-2 fw-bold mb-3">
+            <BookMarked size={22} className="text-primary" /> Manual de Uso
           </CardTitle>
 
-          <CardSubtitle className="text-muted mb-4x">
-            Siga os passos abaixo para atualizar os paineis de exibição:
+          <CardSubtitle className="text-muted mb-4">
+            Siga os passos abaixo para enviar dados para os painéis:
           </CardSubtitle>
 
           <ListGroup variant="flush">
@@ -46,8 +47,8 @@ export function Aside() {
               title="3. Copie e Cole os Dados"
               description={
                 <>
-                  Na planilha do torneio, selecione as células da tabela que
-                  será exibida <strong>(incluindo o cabeçalho)</strong>, copie (
+                  Na planilha do torneio, selecione as células da tabela{" "}
+                  <strong>(incluindo o cabeçalho)</strong>, copie (
                   <code>Ctrl+C</code>) e cole (<code>Ctrl+V</code>) na caixa de
                   texto.
                 </>
@@ -55,30 +56,58 @@ export function Aside() {
             />
 
             <LGItem
-              title="4. Sincronizar Inserção"
+              title="4. Sincronizar"
               description={
                 <>
-                  Clique no botão amarelo <strong>"Sincronizar"</strong>. Os
-                  paineis de exibição serão atualizados instantaneamente com a
-                  tabela inserida!
+                  Clique no botão amarelo <strong>"Sincronizar"</strong>. A TV
+                  será atualizada instantaneamente!
                 </>
               }
             />
           </ListGroup>
 
-          <hr />
+          <hr className="my-4 text-muted" />
 
-          <div className="mt-3">
-            <h6 className="fw-bold text-danger">
-              ⚠️ Dica: Como apagar uma tabela?
-            </h6>
-            <p className="text-muted small mb-0">
-              Para remover uma tabela do placar, digite a Categoria e o Título
-              dela, deixe a caixa de texto em branco e clique em Sincronizar.
-            </p>
-          </div>
+          <CardTitle className="d-flex align-items-center gap-2 fw-bold mb-3">
+            <Info size={18} className="text-primary" /> Edição e Exclusão
+          </CardTitle>
+
+          <ListGroup variant="flush">
+            <LGItem
+              title={
+                <>
+                  <Edit size={16} className="me-1 mb-1" /> Como Editar?
+                </>
+              }
+              description={
+                <>
+                  No quadro <strong>Gerenciar Exibição</strong>, selecione a
+                  seção e a tabela. Os dados serão puxados para o formulário
+                  acima. Altere o que precisar e clique em Sincronizar.
+                </>
+              }
+            />
+
+            <LGItem
+              title={
+                <>
+                  <Trash2 size={16} className="me-1 mb-1 text-danger" /> Como
+                  Apagar?
+                </>
+              }
+              description={
+                <>
+                  Basta selecionar a seção ou a tabela que deseja remover no
+                  quadro <strong>Gerenciar Exibição</strong> e clicar no botão
+                  vermelho com o ícone de lixeira.
+                </>
+              }
+            />
+          </ListGroup>
         </CardBody>
       </Card>
     </Col>
   );
 }
+
+export default Aside;

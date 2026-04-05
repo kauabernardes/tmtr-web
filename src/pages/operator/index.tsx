@@ -17,8 +17,9 @@ import {
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { useTournament } from "../../hooks/useTournament";
-import { Aside } from "./components/aside";
+
 import { Trash } from "lucide-react";
+import Aside from "./components/Aside";
 
 function App() {
   const [text, setText] = useState("");

@@ -14,11 +14,10 @@ export type EmblaCarouselProps = {
 export function EmblaCarousel({
   children,
   scroll = false,
-  ...props
 }: EmblaCarouselProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
     Autoplay({
-      delay: 6000,
+      delay: delay,
       stopOnInteraction: false,
       stopOnMouseEnter: false,
       stopOnFocusIn: false,
